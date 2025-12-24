@@ -12,7 +12,6 @@ namespace LawOfficeManagement.Data
     {
         public DbSet<Client> Clients { get; set; }
         public DbSet<CaseFile> CaseFiles { get; set; }
-        public DbSet<WorkLog> WorkLogs { get; set; }
         public DbSet<Document> Documents { get; set; }
 
 
@@ -23,12 +22,6 @@ namespace LawOfficeManagement.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<WorkLog>()
-                .HasOne(w => w.CaseFile)
-                .WithMany(c => c.WorkLogs)
-                .HasForeignKey(w => w.CaseFileId)
-                .OnDelete(DeleteBehavior.Cascade);
-
             modelBuilder.Entity<Document>()
                 .HasOne(d => d.CaseFile)
                 .WithMany(c => c.Documents)

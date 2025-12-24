@@ -33,7 +33,6 @@
             Delete = new DataGridViewButtonColumn();
             panel1 = new Panel();
             btnAdd = new Button();
-            btnWorkLogs = new Button();
             btnDocuments = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCaseFiles).BeginInit();
             panel1.SuspendLayout();
@@ -75,7 +74,6 @@
             // panel1
             // 
             panel1.Controls.Add(btnAdd);
-            panel1.Controls.Add(btnWorkLogs);
             panel1.Controls.Add(btnDocuments);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -96,17 +94,6 @@
             btnAdd.Text = "Thêm vụ việc";
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
-            // 
-            // btnWorkLogs
-            // 
-            btnWorkLogs.Location = new Point(214, 12);
-            btnWorkLogs.Name = "btnWorkLogs";
-            btnWorkLogs.Size = new Size(95, 26);
-            btnWorkLogs.TabIndex = 5;
-            btnWorkLogs.Text = "work log";
-            btnWorkLogs.UseVisualStyleBackColor = true;
-            btnWorkLogs.Visible = false;
-            btnWorkLogs.Click += btnWorkLogs_Click;
             // 
             // btnDocuments
             // 
@@ -145,7 +132,6 @@
         private DataGridViewButtonColumn editCol;
         private DataGridViewButtonColumn Delete;
         private Button btnAdd;
-        private Button btnWorkLogs;
         private Button btnDocuments;
     }
 }

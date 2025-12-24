@@ -16,12 +16,10 @@ namespace LawOfficeManagement.Models
 
     public int ClientId { get; set; }           
     public Client Client { get; set; }           
-    public ICollection<WorkLog> WorkLogs { get; set; }
     public ICollection<Document> Documents { get; set; }
 
     public CaseFile()
     {
-        WorkLogs = new List<WorkLog>();
         Documents = new List<Document>();
     }
 }

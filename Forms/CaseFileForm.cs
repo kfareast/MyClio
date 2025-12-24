@@ -155,7 +155,6 @@ namespace LawOfficeManagement.Forms
 
             using var context = new LawOfficeContext();
             var caseFile = context.CaseFiles
-                .Include(c => c.WorkLogs)
                 .Include(c => c.Documents)
                 .FirstOrDefault(c => c.CaseFileId == caseFileId);
 
@@ -177,18 +176,6 @@ namespace LawOfficeManagement.Forms
             using var form = new DocumentForm(caseFileId, caseName);
             form.ShowDialog();
         }
-
-        private void btnWorkLogs_Click(object sender, EventArgs e)
-        {
-            if (dgvCaseFiles.CurrentRow == null)
-                return;
-
-            int caseFileId = (int)dgvCaseFiles.CurrentRow.Cells["CaseFileId"].Value;
-
-            using var form = new WorkLogForm(caseFileId);
-            form.ShowDialog();
-        }
-
         private void dgvCaseFiles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

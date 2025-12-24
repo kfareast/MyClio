@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             panelMenu = new Panel();
-            buttonTest = new Button();
-            button3 = new Button();
             btnDocument = new Button();
             btnCaseFile = new Button();
             btnClient = new Button();
@@ -45,8 +43,6 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(51, 51, 76);
-            panelMenu.Controls.Add(buttonTest);
-            panelMenu.Controls.Add(button3);
             panelMenu.Controls.Add(btnDocument);
             panelMenu.Controls.Add(btnCaseFile);
             panelMenu.Controls.Add(btnClient);
@@ -57,34 +53,6 @@
             panelMenu.Name = "panelMenu";
             panelMenu.Size = new Size(220, 681);
             panelMenu.TabIndex = 0;
-            // 
-            // buttonTest
-            // 
-            buttonTest.Dock = DockStyle.Top;
-            buttonTest.FlatAppearance.BorderSize = 0;
-            buttonTest.FlatStyle = FlatStyle.Flat;
-            buttonTest.Font = new Font("Segoe UI", 14F);
-            buttonTest.Location = new Point(0, 320);
-            buttonTest.Name = "buttonTest";
-            buttonTest.Size = new Size(220, 60);
-            buttonTest.TabIndex = 5;
-            buttonTest.Text = "test";
-            buttonTest.UseVisualStyleBackColor = true;
-            buttonTest.Click += buttonTest_Click;
-            // 
-            // button3
-            // 
-            button3.Dock = DockStyle.Top;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 14F);
-            button3.Location = new Point(0, 260);
-            button3.Name = "button3";
-            button3.Size = new Size(220, 60);
-            button3.TabIndex = 4;
-            button3.Text = "Khách hàng";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
             // 
             // btnDocument
             // 
@@ -193,12 +161,10 @@
         private Panel panelMenu;
         private Panel panelLogo;
         private Button btnClient;
-        private Button button3;
         private Button btnDocument;
         private Button btnCaseFile;
         private Panel panelTitleBar;
         private Label lblTitle;
         private Panel panelDesktop;
-        private Button buttonTest;
     }
 }
