@@ -30,12 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             dgvDocuments = new DataGridView();
-            DocumentId = new DataGridViewTextBoxColumn();
-            fileNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            FilePath = new DataGridViewTextBoxColumn();
-            createdAtDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            caseFileIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            caseFileDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             documentBindingSource = new BindingSource(components);
             btnAdd = new Button();
             btnDelete = new Button();
@@ -43,6 +37,12 @@
             panel1 = new Panel();
             lblCase = new Label();
             clientBindingSource = new BindingSource(components);
+            DocumentId = new DataGridViewTextBoxColumn();
+            fileNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            FilePath = new DataGridViewTextBoxColumn();
+            createdAtDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            caseFileIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            caseFileDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvDocuments).BeginInit();
             ((System.ComponentModel.ISupportInitialize)documentBindingSource).BeginInit();
             panel1.SuspendLayout();
@@ -63,79 +63,40 @@
             dgvDocuments.Size = new Size(733, 303);
             dgvDocuments.TabIndex = 0;
             // 
-            // DocumentId
-            // 
-            DocumentId.DataPropertyName = "DocumentId";
-            DocumentId.HeaderText = "DocumentId";
-            DocumentId.Name = "DocumentId";
-            // 
-            // fileNameDataGridViewTextBoxColumn
-            // 
-            fileNameDataGridViewTextBoxColumn.DataPropertyName = "FileName";
-            fileNameDataGridViewTextBoxColumn.HeaderText = "FileName";
-            fileNameDataGridViewTextBoxColumn.Name = "fileNameDataGridViewTextBoxColumn";
-            // 
-            // FilePath
-            // 
-            FilePath.DataPropertyName = "FilePath";
-            FilePath.HeaderText = "FilePath";
-            FilePath.Name = "FilePath";
-            FilePath.Visible = false;
-            // 
-            // createdAtDataGridViewTextBoxColumn
-            // 
-            createdAtDataGridViewTextBoxColumn.DataPropertyName = "CreatedAt";
-            createdAtDataGridViewTextBoxColumn.HeaderText = "CreatedAt";
-            createdAtDataGridViewTextBoxColumn.Name = "createdAtDataGridViewTextBoxColumn";
-            // 
-            // caseFileIdDataGridViewTextBoxColumn
-            // 
-            caseFileIdDataGridViewTextBoxColumn.DataPropertyName = "CaseFileId";
-            caseFileIdDataGridViewTextBoxColumn.HeaderText = "CaseFileId";
-            caseFileIdDataGridViewTextBoxColumn.Name = "caseFileIdDataGridViewTextBoxColumn";
-            caseFileIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // caseFileDataGridViewTextBoxColumn
-            // 
-            caseFileDataGridViewTextBoxColumn.DataPropertyName = "CaseFile";
-            caseFileDataGridViewTextBoxColumn.HeaderText = "CaseFile";
-            caseFileDataGridViewTextBoxColumn.Name = "caseFileDataGridViewTextBoxColumn";
-            caseFileDataGridViewTextBoxColumn.Visible = false;
-            // 
             // documentBindingSource
             // 
             documentBindingSource.DataSource = typeof(Models.Document);
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(546, 13);
+            btnAdd.Location = new Point(413, 13);
             btnAdd.Margin = new Padding(3, 4, 3, 4);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(86, 31);
+            btnAdd.Size = new Size(124, 31);
             btnAdd.TabIndex = 1;
-            btnAdd.Text = "Add";
+            btnAdd.Text = "Thêm tài liệu";
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(638, 13);
+            btnDelete.Location = new Point(635, 13);
             btnDelete.Margin = new Padding(3, 4, 3, 4);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(86, 31);
             btnDelete.TabIndex = 2;
-            btnDelete.Text = "Delete";
+            btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
             // btnOpenFile
             // 
-            btnOpenFile.Location = new Point(454, 13);
+            btnOpenFile.Location = new Point(543, 13);
             btnOpenFile.Margin = new Padding(3, 4, 3, 4);
             btnOpenFile.Name = "btnOpenFile";
             btnOpenFile.Size = new Size(86, 31);
             btnOpenFile.TabIndex = 3;
-            btnOpenFile.Text = "Open";
+            btnOpenFile.Text = "Mở";
             btnOpenFile.UseVisualStyleBackColor = true;
             btnOpenFile.Click += btnOpenFile_Click;
             // 
@@ -164,6 +125,46 @@
             // clientBindingSource
             // 
             clientBindingSource.DataSource = typeof(Models.Client);
+            // 
+            // DocumentId
+            // 
+            DocumentId.DataPropertyName = "DocumentId";
+            DocumentId.HeaderText = "DocumentId";
+            DocumentId.Name = "DocumentId";
+            DocumentId.Visible = false;
+            // 
+            // fileNameDataGridViewTextBoxColumn
+            // 
+            fileNameDataGridViewTextBoxColumn.DataPropertyName = "FileName";
+            fileNameDataGridViewTextBoxColumn.HeaderText = "Tên tài liệu";
+            fileNameDataGridViewTextBoxColumn.Name = "fileNameDataGridViewTextBoxColumn";
+            // 
+            // FilePath
+            // 
+            FilePath.DataPropertyName = "FilePath";
+            FilePath.HeaderText = "FilePath";
+            FilePath.Name = "FilePath";
+            FilePath.Visible = false;
+            // 
+            // createdAtDataGridViewTextBoxColumn
+            // 
+            createdAtDataGridViewTextBoxColumn.DataPropertyName = "CreatedAt";
+            createdAtDataGridViewTextBoxColumn.HeaderText = "Ngày thêm";
+            createdAtDataGridViewTextBoxColumn.Name = "createdAtDataGridViewTextBoxColumn";
+            // 
+            // caseFileIdDataGridViewTextBoxColumn
+            // 
+            caseFileIdDataGridViewTextBoxColumn.DataPropertyName = "CaseFileId";
+            caseFileIdDataGridViewTextBoxColumn.HeaderText = "CaseFileId";
+            caseFileIdDataGridViewTextBoxColumn.Name = "caseFileIdDataGridViewTextBoxColumn";
+            caseFileIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // caseFileDataGridViewTextBoxColumn
+            // 
+            caseFileDataGridViewTextBoxColumn.DataPropertyName = "CaseFile";
+            caseFileDataGridViewTextBoxColumn.HeaderText = "CaseFile";
+            caseFileDataGridViewTextBoxColumn.Name = "caseFileDataGridViewTextBoxColumn";
+            caseFileDataGridViewTextBoxColumn.Visible = false;
             // 
             // DocumentForm
             // 
@@ -197,12 +198,12 @@
         private Panel panel1;
         private BindingSource documentBindingSource;
         private BindingSource clientBindingSource;
+        private Label lblCase;
         private DataGridViewTextBoxColumn DocumentId;
         private DataGridViewTextBoxColumn fileNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn FilePath;
         private DataGridViewTextBoxColumn createdAtDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn caseFileIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn caseFileDataGridViewTextBoxColumn;
-        private Label lblCase;
     }
 }

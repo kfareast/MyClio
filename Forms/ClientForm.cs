@@ -15,6 +15,7 @@ namespace LawOfficeManagement.Forms
     public partial class ClientForm : Form
     {
         private readonly LawOfficeContext _context = new LawOfficeContext();
+        private List<Client> allClients = new List<Client>();
         public ClientForm()
         {
             InitializeComponent();
@@ -22,17 +23,19 @@ namespace LawOfficeManagement.Forms
 
         private void LoadClients(string search = "")
         {
-            using var context = new LawOfficeContext();
-            var query = context.Clients.AsQueryable();
+            //using var context = new LawOfficeContext();
+            //var query = context.Clients.AsQueryable();
 
-            if (!string.IsNullOrWhiteSpace(search))
-            {
-                query = query.Where(c => c.FullName.Contains(search) || c.Phone.Contains(search));
-            }
+            //if (!string.IsNullOrWhiteSpace(search))
+            //{
+            //    query = query.Where(c => c.FullName.Contains(search) || c.Phone.Contains(search));
+            //}
 
-            dgvClients.DataSource = query
-                .OrderBy(c => c.FullName)
-                .ToList();
+            allClients = _context.Clients
+                        .OrderBy(c => c.FullName)
+                        .ToList();
+
+            dgvClients.DataSource = allClients;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -76,7 +79,10 @@ namespace LawOfficeManagement.Forms
         }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            LoadClients(txtSearch.Text.Trim());
+            string keyword = txtSearch.Text.Trim().ToLower();
+            dgvClients.DataSource = allClients
+                .Where(c => c.FullName.ToLower().Contains(keyword) || c.Phone.Contains(keyword))
+                .ToList();
         }
         private void ClientForm_Load(object sender, EventArgs e)
         {
@@ -87,12 +93,6 @@ namespace LawOfficeManagement.Forms
         {
 
         }
-
-        private void txtSearch_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void dgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

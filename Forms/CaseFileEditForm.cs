@@ -69,9 +69,18 @@ namespace LawOfficeManagement.Forms
 
             CurrentCaseFile.Title = txtTitle.Text.Trim();
             CurrentCaseFile.ReceivedDate = dtpReceivedDate.Value;
-            CurrentCaseFile.ClientId = (int)cboClient.SelectedValue;
+
+            var selectedValue = cboClient.SelectedValue;
+
+            if (selectedValue == null)
+            {
+                MessageBox.Show("Vui lòng chọn khách hàng hợp lệ từ danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cboClient.Focus();
+                return;
+            }
+            CurrentCaseFile.ClientId = Convert.ToInt32(selectedValue);
+
             CurrentCaseFile.Status = (CaseStatus)(int)cboStatus.SelectedValue;
-            //CurrentCaseFile.Status = (CaseStatus)cboStatus.SelectedItem;
 
             DialogResult = DialogResult.OK;
         }

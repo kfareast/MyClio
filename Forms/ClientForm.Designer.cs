@@ -40,6 +40,7 @@
             CaseFiles = new DataGridViewTextBoxColumn();
             clientBindingSource = new BindingSource(components);
             panel1 = new Panel();
+            label1 = new Label();
             txtSearch = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvClients).BeginInit();
             ((System.ComponentModel.ISupportInitialize)clientBindingSource).BeginInit();
@@ -48,47 +49,60 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(12, 12);
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAdd.FlatAppearance.BorderSize = 0;
+            btnAdd.ForeColor = SystemColors.ControlText;
+            btnAdd.Location = new Point(553, 14);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
+            btnAdd.Size = new Size(159, 34);
             btnAdd.TabIndex = 1;
-            btnAdd.Text = "Add";
+            btnAdd.Text = "Thêm khách hàng";
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(93, 12);
+            btnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnEdit.FlatAppearance.BorderSize = 0;
+            btnEdit.ForeColor = SystemColors.ControlText;
+            btnEdit.Location = new Point(718, 14);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(75, 23);
+            btnEdit.Size = new Size(120, 34);
             btnEdit.TabIndex = 2;
-            btnEdit.Text = "Edit";
+            btnEdit.Text = "Chỉnh sửa";
             btnEdit.UseVisualStyleBackColor = true;
             btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(174, 12);
+            btnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.ForeColor = SystemColors.ControlText;
+            btnDelete.Location = new Point(844, 14);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(75, 23);
+            btnDelete.Size = new Size(120, 34);
             btnDelete.TabIndex = 3;
-            btnDelete.Text = "Delete";
+            btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
             // dgvClients
             // 
+            dgvClients.AllowUserToAddRows = false;
+            dgvClients.AllowUserToResizeRows = false;
             dgvClients.AutoGenerateColumns = false;
             dgvClients.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvClients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClients.Columns.AddRange(new DataGridViewColumn[] { ClientId, FullName, phoneDataGridViewTextBoxColumn, noteDataGridViewTextBoxColumn, CaseFiles });
             dgvClients.DataSource = clientBindingSource;
             dgvClients.Dock = DockStyle.Fill;
-            dgvClients.Location = new Point(0, 50);
+            dgvClients.Location = new Point(0, 60);
             dgvClients.Margin = new Padding(2);
+            dgvClients.MultiSelect = false;
             dgvClients.Name = "dgvClients";
             dgvClients.RowHeadersWidth = 62;
-            dgvClients.Size = new Size(751, 403);
+            dgvClients.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvClients.Size = new Size(974, 468);
             dgvClients.TabIndex = 0;
             dgvClients.CellContentClick += dgvClients_CellContentClick;
             // 
@@ -130,30 +144,42 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(btnAdd);
+            panel1.BackColor = Color.FromArgb(51, 51, 76);
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(txtSearch);
+            panel1.Controls.Add(btnAdd);
             panel1.Controls.Add(btnEdit);
             panel1.Controls.Add(btnDelete);
             panel1.Dock = DockStyle.Top;
-            panel1.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            panel1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(751, 50);
+            panel1.Size = new Size(974, 60);
             panel1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(12, 17);
+            label1.Name = "label1";
+            label1.Size = new Size(73, 20);
+            label1.TabIndex = 5;
+            label1.Text = "Tìm kiếm:";
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(255, 13);
+            txtSearch.Location = new Point(90, 14);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(222, 22);
+            txtSearch.Size = new Size(330, 27);
             txtSearch.TabIndex = 4;
-            txtSearch.TextChanged += txtSearch_TextChanged_1;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // ClientForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(751, 453);
+            ClientSize = new Size(974, 528);
             Controls.Add(dgvClients);
             Controls.Add(panel1);
             Margin = new Padding(2);
@@ -179,6 +205,7 @@
         private DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn CaseFiles;
+        private Label label1;
         private TextBox txtSearch;
     }
 }

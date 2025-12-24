@@ -66,7 +66,8 @@
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new Forms.DocumentForm(), sender);
+            lblTitle.Text = "Danh sách hồ sơ";
+            OpenChildForm(new Forms.AllDocumentsForm(), sender);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -77,6 +78,11 @@
         private void buttonTest_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.FormTest(), sender);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

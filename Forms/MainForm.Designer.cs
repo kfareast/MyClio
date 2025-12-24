@@ -30,8 +30,8 @@
         {
             panelMenu = new Panel();
             btnDocument = new Button();
-            btnCaseFile = new Button();
             btnClient = new Button();
+            btnCaseFile = new Button();
             panelLogo = new Panel();
             panelTitleBar = new Panel();
             lblTitle = new Label();
@@ -68,20 +68,6 @@
             btnDocument.UseVisualStyleBackColor = true;
             btnDocument.Click += button2_Click;
             // 
-            // btnCaseFile
-            // 
-            btnCaseFile.Dock = DockStyle.Top;
-            btnCaseFile.FlatAppearance.BorderSize = 0;
-            btnCaseFile.FlatStyle = FlatStyle.Flat;
-            btnCaseFile.Font = new Font("Segoe UI", 14F);
-            btnCaseFile.Location = new Point(0, 140);
-            btnCaseFile.Name = "btnCaseFile";
-            btnCaseFile.Size = new Size(220, 60);
-            btnCaseFile.TabIndex = 2;
-            btnCaseFile.Text = "Vụ việc";
-            btnCaseFile.UseVisualStyleBackColor = true;
-            btnCaseFile.Click += button1_Click;
-            // 
             // btnClient
             // 
             btnClient.Dock = DockStyle.Top;
@@ -95,6 +81,21 @@
             btnClient.Text = "Liên hệ";
             btnClient.UseVisualStyleBackColor = true;
             btnClient.Click += BtnClient_Click;
+            // 
+            // btnCaseFile
+            // 
+            btnCaseFile.Dock = DockStyle.Top;
+            btnCaseFile.FlatAppearance.BorderSize = 0;
+            btnCaseFile.FlatStyle = FlatStyle.Flat;
+            btnCaseFile.Font = new Font("Segoe UI", 14F);
+            btnCaseFile.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCaseFile.Location = new Point(0, 140);
+            btnCaseFile.Name = "btnCaseFile";
+            btnCaseFile.Size = new Size(220, 60);
+            btnCaseFile.TabIndex = 2;
+            btnCaseFile.Text = "Vụ việc";
+            btnCaseFile.UseVisualStyleBackColor = true;
+            btnCaseFile.Click += button1_Click;
             // 
             // panelLogo
             // 
@@ -149,7 +150,8 @@
             MaximizeBox = false;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "LawOfficeManagement";
+            Load += MainForm_Load;
             panelMenu.ResumeLayout(false);
             panelTitleBar.ResumeLayout(false);
             panelTitleBar.PerformLayout();

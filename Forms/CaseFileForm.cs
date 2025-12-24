@@ -15,9 +15,9 @@ namespace LawOfficeManagement.Forms
 {
     public partial class CaseFileForm : Form
     {
+        private List<CaseFile> allCaseFiles = new List<CaseFile>();
         public CaseFileForm()
         {
-            //InitializeComponent();
             InitializeDataGridView();
         }
         private void InitializeDataGridView()
@@ -39,7 +39,7 @@ namespace LawOfficeManagement.Forms
             {
                 Name = "Title",
                 DataPropertyName = "Title",
-                HeaderText = "Tiêu đề",
+                HeaderText = "Vụ việc",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
             dgvCaseFiles.Columns.Add(new DataGridViewTextBoxColumn
@@ -57,6 +57,14 @@ namespace LawOfficeManagement.Forms
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
             });
 
+            dgvCaseFiles.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "ReceivedDate",
+                DataPropertyName = "ReceivedDate",
+                HeaderText = "Ngày nhận",
+                DefaultCellStyle = new DataGridViewCellStyle { Format = "dd/MM/yyyy" }
+            });
+
             dgvCaseFiles.CellFormatting += DgvCaseFiles_CellFormatting;
 
             LoadCaseFiles();
@@ -65,9 +73,27 @@ namespace LawOfficeManagement.Forms
         {
             using var context = new LawOfficeContext();
 
-            var data = context.CaseFiles
-                .Include(c => c.Client)
-                .OrderBy(c => c.ReceivedDate)
+            //var data = context.CaseFiles
+            //    .Include(c => c.Client)
+            //    .OrderByDescending(c => c.ReceivedDate)
+            //    .Select(c => new
+            //    {
+            //        c.CaseFileId,
+            //        c.Title,
+            //        ClientName = c.Client.FullName,
+            //        c.Status,
+            //        c.ReceivedDate
+            //    })
+            //    .ToList();
+
+            //dgvCaseFiles.DataSource = data;
+
+            allCaseFiles = context.CaseFiles
+                    .Include(c => c.Client)
+                    .OrderByDescending(c => c.ReceivedDate)
+                    .ToList();
+
+            dgvCaseFiles.DataSource = allCaseFiles
                 .Select(c => new
                 {
                     c.CaseFileId,
@@ -77,8 +103,6 @@ namespace LawOfficeManagement.Forms
                     c.ReceivedDate
                 })
                 .ToList();
-
-            dgvCaseFiles.DataSource = data;
         }
 
         private void CaseFileForm_Load(object sender, EventArgs e)
@@ -176,9 +200,17 @@ namespace LawOfficeManagement.Forms
             using var form = new DocumentForm(caseFileId, caseName);
             form.ShowDialog();
         }
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txtSearch.Text.Trim().ToLower();
+            dgvCaseFiles.DataSource = allCaseFiles
+                .Where(c => c.Title.ToLower().Contains(keyword))
+                .ToList();
+        }
         private void dgvCaseFiles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+
     }
 }
