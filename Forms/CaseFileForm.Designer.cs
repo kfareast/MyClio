@@ -47,9 +47,11 @@
             dgvCaseFiles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCaseFiles.Columns.AddRange(new DataGridViewColumn[] { editCol, Delete });
             dgvCaseFiles.Dock = DockStyle.Fill;
-            dgvCaseFiles.Location = new Point(0, 60);
+            dgvCaseFiles.Location = new Point(0, 100);
+            dgvCaseFiles.Margin = new Padding(4, 5, 4, 5);
             dgvCaseFiles.Name = "dgvCaseFiles";
-            dgvCaseFiles.Size = new Size(850, 404);
+            dgvCaseFiles.RowHeadersWidth = 62;
+            dgvCaseFiles.Size = new Size(1214, 673);
             dgvCaseFiles.TabIndex = 0;
             dgvCaseFiles.CellClick += DgvCaseFiles_CellClick;
             dgvCaseFiles.CellContentClick += dgvCaseFiles_CellContentClick;
@@ -86,25 +88,28 @@
             panel1.Dock = DockStyle.Top;
             panel1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(850, 60);
+            panel1.Size = new Size(1214, 100);
             panel1.TabIndex = 6;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(12, 16);
+            label1.Location = new Point(17, 27);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(77, 21);
+            label1.Size = new Size(118, 32);
             label1.TabIndex = 6;
             label1.Text = "Tìm kiếm:";
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(90, 13);
+            txtSearch.Location = new Point(143, 24);
+            txtSearch.Margin = new Padding(4, 5, 4, 5);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(330, 29);
+            txtSearch.Size = new Size(470, 39);
             txtSearch.TabIndex = 5;
             txtSearch.TextChanged += TxtSearch_TextChanged;
             // 
@@ -115,9 +120,10 @@
             btnAdd.FlatAppearance.BorderColor = Color.White;
             btnAdd.Font = new Font("Segoe UI", 11.25F);
             btnAdd.ForeColor = SystemColors.ControlText;
-            btnAdd.Location = new Point(599, 12);
+            btnAdd.Location = new Point(856, 20);
+            btnAdd.Margin = new Padding(4, 5, 4, 5);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(128, 31);
+            btnAdd.Size = new Size(183, 52);
             btnAdd.TabIndex = 1;
             btnAdd.Text = "Thêm vụ việc";
             btnAdd.UseVisualStyleBackColor = false;
@@ -130,9 +136,10 @@
             btnDocuments.FlatAppearance.BorderColor = Color.White;
             btnDocuments.Font = new Font("Segoe UI", 11.25F);
             btnDocuments.ForeColor = SystemColors.ControlText;
-            btnDocuments.Location = new Point(733, 12);
+            btnDocuments.Location = new Point(1047, 20);
+            btnDocuments.Margin = new Padding(4, 5, 4, 5);
             btnDocuments.Name = "btnDocuments";
-            btnDocuments.Size = new Size(106, 31);
+            btnDocuments.Size = new Size(151, 52);
             btnDocuments.TabIndex = 4;
             btnDocuments.Text = " Xem hồ sơ";
             btnDocuments.UseVisualStyleBackColor = false;
@@ -140,12 +147,13 @@
             // 
             // CaseFileForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(850, 464);
+            ClientSize = new Size(1214, 773);
             Controls.Add(dgvCaseFiles);
             Controls.Add(panel1);
             ForeColor = SystemColors.ControlText;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "CaseFileForm";
             Text = "CaseFileForm";
             Load += CaseFileForm_Load;
